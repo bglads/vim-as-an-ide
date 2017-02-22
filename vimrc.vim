@@ -116,3 +116,14 @@ augroup mydelimitMate
   au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
   au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
+
+
+
+function! Lvimword()
+    exec 'normal mz yiw'
+    exec 'noautocmd lv /'. @".'/gj ./**/*'
+    exec 'normal `z'
+    exec 'lop'
+endfunction
+
+nmap <silent> <F8> :call Lvimword()<CR>
